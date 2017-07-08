@@ -1,0 +1,69 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - microblog</title>
+    {% else %}
+    <title>Welcome to microblog</title>
+    {% endif %}
+  </head>
+  <body>
+      <h1>Hello, {{ user.nickname }}!</h1>
+      {% for event in events %}
+      <div>
+            <h2>{{ event.date }}: {{ event.name }}</h2>
+            {% for race in event.races %}
+            <div>
+                <h3>Race #{{ race.raceNum }}: start {{ race.startTime }}, course {{ race.course.name }}</h3>
+                <h4>CreekFleet Handicap Results:</h4>
+                <table>
+                    <tr>
+                        <th>Place</th>
+                        <th>Skipper</th>
+                        <th>Sail</th>
+                        <th>Boat</th>
+                        <th>Time</th>
+                        <th>Race Handicap</th>
+                        <th>Current Handicap</th>
+                        <th>Corrected Time</th>
+                    </tr>
+                    {% for result in race.cfResults %}
+                    <tr>
+                        <td>{{ result.place }}</td>
+                        <td>{{ result.skipper }}</td>
+                        <td>{{ result.boat.sailNum }}</td>
+                        <td>{{ result.boat.make }} {{result.boat.model }}</td>
+                        <td>{{ result.time }}</td>
+                        <td>{{ result.handicap }}</td>
+                        <td>{{ result.nextHandicap }}</td>
+                        <td>{{ result.corrected }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <table>
+                    <tr>
+                        <th>Place</th>
+                        <th>Skipper</th>
+                        <th>Sail</th>
+                        <th>Boat</th>
+                        <th>Time</th>
+                        <th>Portsmouth Handicap</th>
+                        <th>Corrected Time</th>
+                    </tr>
+                    {% for result in race.pmResults %}
+                    <tr>
+                        <td>{{ result.place }}</td>
+                        <td>{{ result.skipper }}</td>
+                        <td>{{ result.boat.sailNum }}</td>
+                        <td>{{ result.boat.make }} {{result.boat.model }}</td>
+                        <td>{{ result.time }}</td>
+                        <td>{{ result.handicap }}</td>
+                        <td>{{ result.corrected }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+  </body>
+</html>
