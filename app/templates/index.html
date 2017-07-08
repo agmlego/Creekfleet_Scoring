@@ -1,13 +1,13 @@
 <html>
   <head>
     {% if title %}
-    <title>{{ title }} - microblog</title>
+    <title>{{ title }} - CreekFleet</title>
     {% else %}
-    <title>Welcome to microblog</title>
+    <title>Welcome to CreekFleet</title>
     {% endif %}
   </head>
   <body>
-      <h1>Hello, {{ user.nickname }}!</h1>
+      <h1>Hello, {{ user.name }}!</h1>
       {% for event in events %}
       <div>
             <h2>{{ event.date }}: {{ event.name }}</h2>
@@ -56,7 +56,7 @@
                         <td>{{ result.boat.sailNum }}</td>
                         <td>{{ result.boat.make }} {{result.boat.model }}</td>
                         <td>{{ result.time }}</td>
-                        <td>{{ result.handicap }}</td>
+                        <td>{{ result.boat.portsmouthHC }}</td>
                         <td>{{ result.corrected }}</td>
                     </tr>
                     {% endfor %}
