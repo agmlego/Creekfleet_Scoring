@@ -102,7 +102,11 @@ def index():
                             'handicap':0.98,
                             'nextHandicap':0.98,
                             'corrected':timedelta(seconds=(timedelta(minutes=21,seconds=38.99).total_seconds()*.98)),
-                            'shortCourse':False
+                            'shortCourse':False,
+                            'finishCode':{
+                                'name':'Complete',
+                                'score':True
+                            }
                         },
                         {
                             'place':2,
@@ -119,7 +123,12 @@ def index():
                             'handicap':1.01,
                             'nextHandicap':1.01,
                             'corrected':timedelta(seconds=(timedelta(minutes=21,seconds=37.99).total_seconds()*1.01)),
-                            'shortCourse':False
+                            'shortCourse':False,
+                            'finishCode':{
+                                'name':'Complete',
+                                'score':True
+                            }
+
                         },
                         {
                             'place':3,
@@ -136,9 +145,14 @@ def index():
                             'handicap':1.05,
                             'nextHandicap':1.05,
                             'corrected':timedelta(seconds=(timedelta(minutes=22,seconds=37.99).total_seconds()*1.05)),
-                            'shortCourse':False
+                            'shortCourse':False,
+                            'finishCode':{
+                                'name':'Complete',
+                                'score':True
+                            }
+
                         }
-                    ]
+                    ],
                     'pmResults':[
                         {
                             'place':1,
@@ -153,7 +167,12 @@ def index():
                             },
                             'time':timedelta(minutes=21,seconds=37.99),
                             'corrected':timedelta(seconds=(timedelta(minutes=21,seconds=37.99).total_seconds()*100/105.0)),
-                            'shortCourse':False
+                            'shortCourse':False,
+                            'finishCode':{
+                                'name':'Complete',
+                                'score':True
+                            }
+
                         },
                         {
                             'place':2,
@@ -168,7 +187,12 @@ def index():
                             },
                             'time':timedelta(minutes=21,seconds=38.99),
                             'corrected':timedelta(seconds=(timedelta(minutes=21,seconds=38.99).total_seconds()*100/105.0)),
-                            'shortCourse':False
+                            'shortCourse':False,
+                            'finishCode':{
+                                'name':'Complete',
+                                'score':True
+                            }
+
                         },
                         {
                             'place':3,
@@ -183,7 +207,12 @@ def index():
                             },
                             'time':timedelta(minutes=22,seconds=37.99),
                             'corrected':timedelta(seconds=(timedelta(minutes=22,seconds=37.99).total_seconds()*100/86.9)),
-                            'shortCourse':False
+                            'shortCourse':False,
+                            'finishCode':{
+                                'name':'Complete',
+                                'score':True
+                            }
+
                         }
                     ]
                 },
@@ -192,6 +221,6 @@ def index():
     ]
 
     return render_template('index.html',
-#                           title='Home',
+                            title='Home',
                             user=user,
                             events=events)
