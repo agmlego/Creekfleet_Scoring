@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% if title %}
-    <title>{{ title }} - CreekFleet</title>
-    {% else %}
-    <title>Welcome to CreekFleet</title>
-    {% endif %}
-  </head>
-  <body>
-      <h1>Hello, {{ user.name }}!</h1>
+{% extends "base.html" %}
+{% block content %}
+    <h1>Hello, {{ user.name }}!</h1>
       {% for event in events %}
       <div>
             <h2>{{ event.date }}: {{ event.name }}</h2>
@@ -66,5 +58,4 @@
             {% endfor %}
         </div>
         {% endfor %}
-  </body>
-</html>
+{% endblock %}

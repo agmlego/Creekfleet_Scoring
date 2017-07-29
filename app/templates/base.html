@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - CreekFleet</title>
+    {% else %}
+    <title>Welcome to CreekFleet</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>CreekFleet: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>
