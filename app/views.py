@@ -1,6 +1,7 @@
-from flask import render_template
-from app import app
+from flask import render_template,request
 from datetime import date,time,timedelta
+from app import app
+from .forms import LoginForm
 
 @app.route('/')
 @app.route('/index')
@@ -224,3 +225,14 @@ def index():
                             title='Home',
                             user=user,
                             events=events)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm(request.form)
+    if request.method == 'POST' and form.validate():
+        flash('Login requested for username="%s", password="%s", remember_me=%s'%\
+            (form.username.data,form.password.data,str(form.remember_me.data)))
+        return redirect(url_for('index'))
+    return render_template('login.html', 
+                           title='Sign In',
+                           form=form)
